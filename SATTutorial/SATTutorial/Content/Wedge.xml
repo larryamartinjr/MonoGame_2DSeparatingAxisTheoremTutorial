@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with http://www.physicseditor.de -->
+<bodydef version="1.0" name="Wedge">
+    <bodies numBodies="1">
+
+        <body name="Wedge" dynamic="false" numFixtures="1">
+
+            <fixture
+                restitution="0.75"
+				density="1"
+				radius="100"
+				collisionLayers="1,0"
+				staticFriction="0.90000000000000002"
+				dynamicFriction="0.5"
+				rotationalResistance="0.80000000000000004"
+                type="POLYGON"
+                numPolygons="1"
+                > 
+
+<polygons>
+			
+					<polygon numVertexes="5">
+
+						<vertex x="-91.0000" y="-39.0000" />
+
+						<vertex x="-93.0000" y="30.0000" />
+
+						<vertex x="-90.0000" y="44.0000" />
+
+						<vertex x="90.0000" y="0.0000" />
+
+						<vertex x="90.0000" y="-13.0000" />
+
+					</polygon>		
+
+</polygons>
+
+            </fixture>
+
+        </body>
+
+    </bodies>
+    <metadata>
+        <format>1</format>
+        <ptm_ratio></ptm_ratio>
+    </metadata>
+</bodydef>
