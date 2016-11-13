@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with http://www.physicseditor.de -->
+<bodydef version="1.0" name="Player">
+    <bodies numBodies="1">
+
+        <body name="Player" dynamic="true" fastMoving="false" numFixtures="1">
+
+            <fixture
+                restitution="0.5"
+				density="0.5"
+				radius="50"
+				collisionLayers="1,0"
+				staticFriction="0.5"
+				dynamicFriction="0.20000000000000001"
+				rotationalResistance="0.5"
+                type="POLYGON"
+                numPolygons="1"
+				linearDampening="0"
+                >
+
+<polygons>
+			
+					<polygon numVertexes="4">
+
+						<vertex x="-43.0000" y="11.0000" />
+
+						<vertex x="44.0000" y="11.0000" />
+
+						<vertex x="44.0000" y="-12.0000" />
+
+						<vertex x="-43.0000" y="-12.0000" />
+
+					</polygon>		
+
+</polygons>
+
+				<anchorPoint>
+					<enabled>true</enabled>
+					<relX>50</relX>
+					<relY>50</relY>
+				</anchorPoint>
+            </fixture>
+
+        </body>
+
+    </bodies>
+	
+    <metadata>
+        <format>1</format>
+        <ptm_ratio></ptm_ratio>
+    </metadata>
+</bodydef>

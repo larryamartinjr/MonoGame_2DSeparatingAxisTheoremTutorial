@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SATTutorial.Content;
+using SATTutorial.Entities;
+using SATTutorial.Physics_Game;
 
 namespace SATTutorial
 {
@@ -11,11 +14,14 @@ namespace SATTutorial
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        PhysicsGame physicsGame;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            physicsGame = new PhysicsGame();
         }
 
         /// <summary>
@@ -40,7 +46,10 @@ namespace SATTutorial
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            //use this.Content to load your game content here
+            ContentStore.LoadContent(Content);
+
+            physicsGame.CreatePlayer();
         }
 
         /// <summary>
@@ -75,7 +84,16 @@ namespace SATTutorial
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            foreach (Drawable drawable in physicsGame.Drawables)
+            {
+                spriteBatch.Draw(drawable.texture, drawable.body.Location, null, null, 
+                    new Vector2(drawable.texture.Width / 2, drawable.texture.Height / 2), 0,
+                    Vector2.One, Color.White, SpriteEffects.None, 0);
+            }
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
