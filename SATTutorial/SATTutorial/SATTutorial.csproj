@@ -42,6 +42,7 @@
     <Compile Include="Entities\Drawable.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="PhysicsEngine\Bodies\Body.cs" />
+    <Compile Include="PhysicsEngine\PhysicsManager.cs" />
     <Compile Include="Physics_Game\PhysicsGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
