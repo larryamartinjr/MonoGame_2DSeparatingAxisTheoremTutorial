@@ -68,10 +68,34 @@ namespace SATTutorial
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            physicsGame.Update(gameTime);
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            KeyboardState keyboard = Keyboard.GetState();
+
+            if (keyboard.IsKeyDown(Keys.A))
+            {
+                physicsGame.Player.body.Rotation += -3f * (gameTime.ElapsedGameTime.Milliseconds / 1000f);
+            }
+
+            if (keyboard.IsKeyDown(Keys.D))
+            {
+                physicsGame.Player.body.Rotation += 3f * (gameTime.ElapsedGameTime.Milliseconds / 1000f);
+            }
+
+            if (keyboard.IsKeyDown(Keys.W))
+            {
+                Matrix rotation = physicsGame.Player.body.RotationMatrix;
+                physicsGame.Player.body.Velocity += Vector2.Transform(new Vector2(0, -100), rotation) * (gameTime.ElapsedGameTime.Milliseconds / 1000f);
+            }
+
+            if (keyboard.IsKeyDown(Keys.S))
+            {
+                Matrix rotation = physicsGame.Player.body.RotationMatrix;
+                physicsGame.Player.body.Velocity += Vector2.Transform(new Vector2(0, 100), rotation) * (gameTime.ElapsedGameTime.Milliseconds / 1000f);
+            }
 
             base.Update(gameTime);
         }
@@ -89,7 +113,7 @@ namespace SATTutorial
             foreach (Drawable drawable in physicsGame.Drawables)
             {
                 spriteBatch.Draw(drawable.texture, drawable.body.Location, null, null, 
-                    new Vector2(drawable.texture.Width / 2, drawable.texture.Height / 2), 0,
+                    new Vector2(drawable.texture.Width / 2, drawable.texture.Height / 2), drawable.body.Rotation,
                     Vector2.One, Color.White, SpriteEffects.None, 0);
             }
 
